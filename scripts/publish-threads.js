@@ -39,10 +39,10 @@ if (pngFiles.length === 0) {
 
 console.log(`\n🧵 Threads 게시 준비 (${pngFiles.length}장)`);
 
-const { fullCaption } = await parseCopyFile(copyPath);
+const { caption } = await parseCopyFile(copyPath);
 console.log('\n📝 캡션 미리보기:');
 console.log('─'.repeat(40));
-console.log(fullCaption);
+console.log(caption);
 console.log('─'.repeat(40));
 
 // Step 1: Facebook 페이지에 이미지 업로드 (공개 URL 획득)
@@ -53,8 +53,8 @@ const imageUrls = await uploadImagesToMeta(
   process.env.FACEBOOK_PAGE_ID
 );
 
-// Step 2: Threads 캐러셀 게시
-const result = await postThreadsCarousel(imageUrls, fullCaption, {
+// Step 2: Threads 캐러셀 게시 (해시태그는 댓글로)
+const result = await postThreadsCarousel(imageUrls, caption, {
   threadsAccessToken: process.env.THREADS_ACCESS_TOKEN,
   threadsUserId: process.env.THREADS_USER_ID,
 });

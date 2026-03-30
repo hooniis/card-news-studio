@@ -37,9 +37,24 @@ export async function parseCopyFile(filePath) {
 
   caption = caption.trimEnd();
 
+  // 캡션 본문에서 해시태그 줄 분리
+  const captionLines = caption.split('\n');
+  const hashtagLines = [];
+  const bodyLines = [];
+  for (const line of captionLines) {
+    if (line.trim().startsWith('#') && line.includes(' #')) {
+      hashtagLines.push(line.trim());
+    } else {
+      bodyLines.push(line);
+    }
+  }
+
+  const captionBody = bodyLines.join('\n').trimEnd();
+  const captionHashtags = hashtagLines.join(' ').trim() || hashtags;
+
   return {
-    hashtags: hashtags.trim(),
-    caption,
+    hashtags: captionHashtags || hashtags.trim(),
+    caption: captionBody,
     fullCaption: caption,
   };
 }

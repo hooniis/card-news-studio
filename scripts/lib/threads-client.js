@@ -120,6 +120,127 @@ export async function postThreadsCarousel(imageUrls, text, config) {
 }
 
 /**
+ * Threads 스레드 체인을 게시한다. (각 카드가 답글로 연결되는 방식)
+ * @param {string[]} imageUrls - 공개 이미지 URL 배열
+ * @param {string} text - 첫 번째 게시글 텍스트 (캡션)
+ * @param {Object} config - API 설정
+ * @param {string} config.threadsAccessToken - Threads 액세스 토큰
+ * @param {string} config.threadsUserId - Threads 사용자 ID
+ * @returns {Promise<{id: string, permalink: string, threadIds: string[]}>}
+ */
+export async function postThreadsChain(imageUrls, text, config) {
+  const { threadsAccessToken, threadsUserId } = config;
+
+  const threadIds = [];
+
+  // Step 1: 첫 번째 카드 (캡션 포함)
+  console.log('\n🧵 스레드 체인 생성 중...');
+  console.log(`  [1/${imageUrls.length}] 첫 번째 게시물 생성...`);
+
+  const firstParams = new URLSearchParams({
+    media_type: 'IMAGE',
+    image_url: imageUrls[0],
+    text,
+    access_token: threadsAccessToken,
+  });
+
+  const firstContainer = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: firstParams.toString(),
+  });
+  await waitForContainer(firstContainer.id, threadsAccessToken);
+
+  const firstPublished = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads_publish`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      creation_id: firstContainer.id,
+      access_token: threadsAccessToken,
+    }).toString(),
+  });
+  threadIds.push(firstPublished.id);
+  console.log(`  ✅ 게시 완료: ${firstPublished.id}`);
+
+  // Step 2: 나머지 카드를 reply_to_id로 연결
+  let previousId = firstPublished.id;
+  for (let i = 1; i < imageUrls.length; i++) {
+    console.log(`  [${i + 1}/${imageUrls.length}] 답글 생성...`);
+
+    const replyParams = new URLSearchParams({
+      media_type: 'IMAGE',
+      image_url: imageUrls[i],
+      reply_to_id: previousId,
+      access_token: threadsAccessToken,
+    });
+
+    const replyContainer = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: replyParams.toString(),
+    });
+    await waitForContainer(replyContainer.id, threadsAccessToken);
+
+    const replyPublished = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads_publish`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        creation_id: replyContainer.id,
+        access_token: threadsAccessToken,
+      }).toString(),
+    });
+    threadIds.push(replyPublished.id);
+    previousId = replyPublished.id;
+    console.log(`  ✅ 답글 게시 완료: ${replyPublished.id}`);
+
+    // 스팸 방지 딜레이 (3초)
+    if (i < imageUrls.length - 1) {
+      await new Promise(r => setTimeout(r, 3000));
+    }
+  }
+
+  // Step 3: 해시태그 댓글 (옵션)
+  if (config.hashtags) {
+    console.log(`  [댓글] 해시태그 게시...`);
+    const hashtagParams = new URLSearchParams({
+      media_type: 'TEXT',
+      text: config.hashtags,
+      reply_to_id: threadIds[0],
+      access_token: threadsAccessToken,
+    });
+
+    const hashtagContainer = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: hashtagParams.toString(),
+    });
+    await waitForContainer(hashtagContainer.id, threadsAccessToken);
+
+    const hashtagPublished = await fetchWithRetry(`${THREADS_API}/${threadsUserId}/threads_publish`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        creation_id: hashtagContainer.id,
+        access_token: threadsAccessToken,
+      }).toString(),
+    });
+    console.log(`  ✅ 해시태그 댓글 완료: ${hashtagPublished.id}`);
+  }
+
+  // permalink 조회 (첫 번째 게시물)
+  const mediaRes = await fetch(
+    `${THREADS_API}/${threadIds[0]}?fields=permalink&access_token=${threadsAccessToken}`
+  );
+  const mediaData = await mediaRes.json();
+
+  return {
+    id: threadIds[0],
+    permalink: mediaData.permalink || `https://www.threads.net/@/post/${threadIds[0]}`,
+    threadIds,
+  };
+}
+
+/**
  * Facebook 페이지에 이미지를 업로드하고 공개 URL 배열을 반환한다.
  * (Instagram 클라이언트의 uploadImageToMeta와 동일한 로직)
  */

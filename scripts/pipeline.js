@@ -82,7 +82,7 @@ if (!dryRun && !renderOnly) {
     process.exit(1);
   }
 
-  const { fullCaption } = await parseCopyFile(copyPath);
+  const { caption, fullCaption } = await parseCopyFile(copyPath);
   console.log('\n[2/2] 📱 Instagram 게시');
   console.log('  📝 캡션:');
   fullCaption.split('\n').slice(0, 3).forEach(l => console.log(`    ${l}`));
@@ -117,7 +117,7 @@ if (!dryRun && !renderOnly) {
         process.env.FACEBOOK_PAGE_TOKEN,
         process.env.FACEBOOK_PAGE_ID
       );
-      const threadsResult = await postThreadsCarousel(imageUrls, fullCaption, {
+      const threadsResult = await postThreadsCarousel(imageUrls, caption, {
         threadsAccessToken: process.env.THREADS_ACCESS_TOKEN,
         threadsUserId: process.env.THREADS_USER_ID,
       });
