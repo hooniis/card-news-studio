@@ -1,0 +1,5 @@
+node_modules/
+.env
+.omc/
+.idea/
+05_images/

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 1</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-light: #DBEAFE;
+      --accent: #F59E0B;
+      --bg-light: #F8FAFC;
+      --bg-dark: #1E293B;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --danger: #DC2626;
+      --danger-light: #FEE2E2;
+      --warning: #F59E0B;
+      --success: #059669;
+      --success-light: #D1FAE5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e2e8f0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .emoji-shelf {
+      font-size: 80px;
+      margin-bottom: 20px;
+      letter-spacing: 12px;
+    }
+
+    .sold-out-tag {
+      display: inline-block;
+      background: var(--danger);
+      color: var(--text-light);
+      font-size: 28px;
+      font-weight: 700;
+      padding: 8px 24px;
+      border-radius: 8px;
+      margin-bottom: 48px;
+      transform: rotate(-3deg);
+    }
+
+    .headline {
+      font-size: 72px;
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .headline .highlight {
+      color: var(--warning);
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 0 auto 32px;
+    }
+
+    .sub-headline {
+      font-size: 32px;
+      font-weight: 400;
+      color: #94A3B8;
+      line-height: 1.6;
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      background: var(--primary);
+    }
+
+    .deco-circle-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+    }
+
+    .deco-circle-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -80px;
+      left: -80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="card-content">
+      <div class="emoji-shelf">🛒  🫥  🛒</div>
+      <div class="sold-out-tag">품절</div>
+      <h1 class="headline">매대가 <span class="highlight">텅?</span></h1>
+      <div class="divider"></div>
+      <p class="sub-headline">전쟁이 장바구니까지 흔든다</p>
+    </div>
+    <div class="page-indicator">1/7</div>
+  </div>
+</body>
+</html>

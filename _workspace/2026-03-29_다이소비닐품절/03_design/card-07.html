@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 7</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-light: #DBEAFE;
+      --accent: #F59E0B;
+      --bg-light: #F8FAFC;
+      --bg-dark: #1E293B;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --cta-bg-start: #1E40AF;
+      --cta-bg-end: #0F766E;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #e2e8f0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--cta-bg-start) 0%, var(--cta-bg-end) 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .emoji-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-light);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 2px;
+      margin: 0 auto 32px;
+    }
+
+    .sub-text {
+      font-size: 30px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--text-light);
+      color: var(--cta-bg-start);
+      font-size: 32px;
+      font-weight: 700;
+      padding: 20px 48px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    .cta-icons {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .cta-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cta-icon-item .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .cta-icon-item .label {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .comment-prompt {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px 32px;
+      max-width: 700px;
+    }
+
+    .comment-prompt p {
+      font-size: 26px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      background: white;
+    }
+
+    .deco-circle-1 {
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      left: -150px;
+    }
+
+    .deco-circle-2 {
+      width: 350px;
+      height: 350px;
+      bottom: -100px;
+      right: -100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="card-content">
+      <div class="emoji-icon">💡</div>
+      <h2 class="headline">불안할 땐 팩트 체크</h2>
+      <div class="divider"></div>
+      <p class="sub-text">필요한 만큼만, 차분하게.</p>
+      <div class="cta-button">
+        <span>📌</span>
+        <span>저장하고 공유하기</span>
+      </div>
+      <div class="cta-icons">
+        <div class="cta-icon-item">
+          <div class="icon">🔖</div>
+          <span class="label">저장</span>
+        </div>
+        <div class="cta-icon-item">
+          <div class="icon">🔗</div>
+          <span class="label">공유</span>
+        </div>
+        <div class="cta-icon-item">
+          <div class="icon">💬</div>
+          <span class="label">댓글</span>
+        </div>
+      </div>
+      <div class="comment-prompt">
+        <p>우리 동네도 품절인가요? 댓글로 알려주세요!</p>
+      </div>
+    </div>
+    <div class="page-indicator">7/7</div>
+  </div>
+</body>
+</html>

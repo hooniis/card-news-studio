@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E2E8F0;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .container {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 배경 장식 원 */
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+  }
+  .bg-circle.c1 {
+    width: 800px; height: 800px;
+    border: 3px solid #38BDF8;
+    top: -200px; right: -200px;
+  }
+  .bg-circle.c2 {
+    width: 600px; height: 600px;
+    border: 3px solid #8B5CF6;
+    bottom: -150px; left: -150px;
+  }
+
+  .logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    z-index: 1;
+  }
+
+  .icon-box {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #38BDF8, #8B5CF6);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    box-shadow: 0 20px 60px rgba(56, 189, 248, 0.3);
+  }
+
+  .text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .main-text {
+    font-size: 120px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .main-text .accent {
+    background: linear-gradient(135deg, #38BDF8, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider {
+    width: 80px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+
+  .sub-text {
+    font-size: 32px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="bg-circle c1"></div>
+    <div class="bg-circle c2"></div>
+
+    <div class="logo-area">
+      <div class="icon-box">📰</div>
+
+      <div class="text-group">
+        <div class="main-text">
+          요즘<span class="accent">뭔일</span>
+        </div>
+        <div class="divider"></div>
+        <div class="sub-text">3분 뉴스 큐레이션</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

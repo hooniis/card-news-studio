@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 3 — 더 내는 경우</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F766E;
+      --primary-light: #CCFBF1;
+      --accent: #EAB308;
+      --accent-light: #FEF9C3;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: var(--bg-light);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .headline .emoji {
+      font-size: 54px;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    /* 키워드 태그 */
+    .keywords {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .keyword-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 28px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      font-size: 34px;
+      font-weight: 600;
+      color: #92400E;
+      letter-spacing: -0.01em;
+    }
+
+    .keyword-tag .icon {
+      font-size: 30px;
+    }
+
+    .body-text {
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+      border-radius: 16px;
+      padding: 32px 36px;
+      border-left: 5px solid var(--accent);
+    }
+
+    .highlight-box .label {
+      font-size: 26px;
+      font-weight: 600;
+      color: #92400E;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .highlight-box .value {
+      font-size: 40px;
+      font-weight: 700;
+      color: #78350F;
+      line-height: 1.4;
+    }
+
+    /* 상단 우측 큰 번호 */
+    .number-bg {
+      font-size: 200px;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.07;
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      line-height: 1;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="number-bg">📈</div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">연봉 올랐으면 더 내요 <span class="emoji">📈</span></h2>
+      </div>
+      <div class="card-body">
+        <div class="keywords">
+          <span class="keyword-tag"><span class="icon">💼</span> 승진</span>
+          <span class="keyword-tag"><span class="icon">📊</span> 호봉 인상</span>
+          <span class="keyword-tag"><span class="icon">💵</span> 성과급</span>
+        </div>
+        <div class="body-text">
+          소득이 늘었다면<br>차액을 한꺼번에 추가 납부해요.
+        </div>
+        <div class="highlight-box">
+          <div class="label">핵심 포인트</div>
+          <div class="value">한꺼번에 추가 납부</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">3/7</span>
+  </div>
+</body>
+</html>

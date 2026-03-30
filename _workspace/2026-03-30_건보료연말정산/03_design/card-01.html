@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 1 — 커버</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F766E;
+      --primary-dark: #064E3B;
+      --accent: #EAB308;
+      --bg-light: #F8FAFC;
+      --bg-dark: #1E293B;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 50%, #042F2E 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .emoji {
+      font-size: 64px;
+      margin-bottom: 40px;
+      line-height: 1;
+    }
+
+    .headline {
+      font-size: 76px;
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .sub-headline {
+      font-size: 38px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+    }
+
+    /* 배경 장식 요소 */
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+      background: #FFFFFF;
+    }
+
+    .bg-circle-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -80px;
+    }
+
+    .bg-circle-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -60px;
+      left: -60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+    <div class="card-content">
+      <div class="emoji">💰</div>
+      <h1 class="headline">4월 월급,<br>왜 갑자기 줄었지?</h1>
+      <div class="divider"></div>
+      <p class="sub-headline">건보료 연말정산 때문이에요</p>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">1/7</span>
+  </div>
+</body>
+</html>
