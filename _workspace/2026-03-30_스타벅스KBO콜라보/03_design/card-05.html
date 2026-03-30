@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 - 이미지 (한화 + KIA)</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00704A;
+      --secondary: #E03131;
+      --accent: #FFF8F0;
+      --text-dark: #1A1A2E;
+      --highlight: #FFD43B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: var(--accent);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+      margin-top: 20px;
+    }
+
+    .image-grid {
+      flex: 1;
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .image-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .image-item img {
+      width: 100%;
+      flex: 1;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-label {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #64748B;
+      letter-spacing: -0.02em;
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <h2 class="title">이것도 봐야 해요 👀</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="image-grid">
+        <div class="image-item">
+          <img src="../starbucks2.jpg" alt="한화 이글스 콜라보 MD">
+        </div>
+        <div class="image-item">
+          <img src="../starbucks4.jpg" alt="KIA 타이거즈 콜라보 MD">
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/7</span>
+  </div>
+</body>
+</html>

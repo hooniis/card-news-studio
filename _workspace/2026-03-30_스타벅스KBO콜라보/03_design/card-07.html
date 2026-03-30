@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 7 - CTA</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00704A;
+      --secondary: #E03131;
+      --accent: #FFF8F0;
+      --text-dark: #1A1A2E;
+      --highlight: #FFD43B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: linear-gradient(160deg, #00704A 0%, #00895a 50%, #34d399 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .headline {
+      font-size: 56px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.3;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #FFFFFF;
+      color: var(--primary);
+      font-size: 38px;
+      font-weight: 700;
+      padding: 24px 64px;
+      border-radius: 12px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .sub-text {
+      font-size: 30px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .comment-cta {
+      font-size: 32px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .follow-cta {
+      font-size: 26px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: -0.01em;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: -0.02em;
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <h2 class="headline">야구 좋아하는 친구한테<br>알려줘요!</h2>
+      <div class="divider"></div>
+      <div class="cta-button">💾 저장 + 공유하기</div>
+      <p class="sub-text">직관 가기 전에 꼭 챙겨두세요</p>
+      <p class="comment-cta">응원하는 구단 댓글로 알려줘요! 💬</p>
+      <p class="follow-cta">@요즘뭔일 팔로우하고 소식 받기</p>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">7/7</span>
+  </div>
+</body>
+</html>
