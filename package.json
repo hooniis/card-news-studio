@@ -2,12 +2,14 @@
   "name": "card-news-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "카드뉴스 HTML→PNG 렌더링 및 Instagram 자동 게시 파이프라인",
+  "description": "카드뉴스 HTML→PNG 렌더링 및 Instagram/Threads 자동 게시 파이프라인",
   "type": "module",
   "scripts": {
     "render": "node scripts/render.js",
     "publish": "node scripts/publish.js",
-    "pipeline": "node scripts/pipeline.js"
+    "publish:threads": "node scripts/publish-threads.js",
+    "pipeline": "node scripts/pipeline.js",
+    "pipeline:all": "node scripts/pipeline.js --threads"
   },
   "dependencies": {
     "dotenv": "^16.4.0",

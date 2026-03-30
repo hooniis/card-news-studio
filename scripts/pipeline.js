@@ -7,6 +7,7 @@ import { writeFile } from 'node:fs/promises';
 import { renderAllCards } from './lib/html-renderer.js';
 import { parseCopyFile } from './lib/copy-parser.js';
 import { postCarousel } from './lib/instagram-client.js';
+import { postThreadsCarousel, uploadImagesToMeta } from './lib/threads-client.js';
 
 const args = process.argv.slice(2);
 const flags = args.filter(a => a.startsWith('--'));
@@ -17,7 +18,8 @@ if (!workDir) {
   console.error('  옵션:');
   console.error('    --dry-run       렌더링만 수행, 게시 건너뛰기');
   console.error('    --render-only   렌더링만 수행');
-  console.error('    --publish-only  기존 이미지로 게시만 수행');
+  console.error('    --publish-only  기존 이미지로 게시만 수행
+    --threads       Threads에도 동시 게시');
   console.error('');
   console.error('  예시: node scripts/pipeline.js _workspace/2026-03-30_건보료연말정산');
   process.exit(1);
@@ -26,6 +28,7 @@ if (!workDir) {
 const dryRun = flags.includes('--dry-run');
 const renderOnly = flags.includes('--render-only');
 const publishOnly = flags.includes('--publish-only');
+const includeThreads = flags.includes('--threads');
 
 const designDir = resolve(workDir, '03_design');
 const imagesDir = resolve(workDir, '05_images');
@@ -99,7 +102,37 @@ if (!dryRun && !renderOnly) {
     cardCount: pngFiles.length,
   }, null, 2));
 
-  console.log(`\n  ✅ 게시 완료: ${result.permalink}`);
+  console.log(`\n  ✅ Instagram 게시 완료: ${result.permalink}`);
+
+  // Threads 게시
+  if (includeThreads) {
+    const threadsMissing = ['THREADS_ACCESS_TOKEN', 'THREADS_USER_ID'].filter(v => !process.env[v]);
+    if (threadsMissing.length > 0) {
+      console.error(`\n  ⚠️ Threads 게시 건너뛰기 (.env에 ${threadsMissing.join(', ')} 필요)`);
+    } else {
+      console.log('\n🧵 Threads 게시');
+      // Instagram 게시 시 이미 업로드된 이미지 URL을 재활용할 수 없으므로 재업로드
+      const imageUrls = await uploadImagesToMeta(
+        pngFiles,
+        process.env.FACEBOOK_PAGE_TOKEN,
+        process.env.FACEBOOK_PAGE_ID
+      );
+      const threadsResult = await postThreadsCarousel(imageUrls, fullCaption, {
+        threadsAccessToken: process.env.THREADS_ACCESS_TOKEN,
+        threadsUserId: process.env.THREADS_USER_ID,
+      });
+
+      await writeFile(resolve(workDir, '07_threads-result.json'), JSON.stringify({
+        publishedAt: new Date().toISOString(),
+        platform: 'threads',
+        mediaId: threadsResult.id,
+        permalink: threadsResult.permalink,
+        cardCount: pngFiles.length,
+      }, null, 2));
+
+      console.log(`\n  ✅ Threads 게시 완료: ${threadsResult.permalink}`);
+    }
+  }
 } else {
   console.log(`\n[2/2] 📱 게시 건너뛰기 (${dryRun ? 'dry-run' : 'render-only'} 모드)`);
 }
