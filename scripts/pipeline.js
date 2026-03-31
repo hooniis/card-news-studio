@@ -18,8 +18,8 @@ if (!workDir) {
   console.error('  옵션:');
   console.error('    --dry-run       렌더링만 수행, 게시 건너뛰기');
   console.error('    --render-only   렌더링만 수행');
-  console.error('    --publish-only  기존 이미지로 게시만 수행
-    --threads       Threads에도 동시 게시');
+  console.error('    --publish-only  기존 이미지로 게시만 수행');
+  console.error('    --threads       Threads에도 동시 게시');
   console.error('');
   console.error('  예시: node scripts/pipeline.js _workspace/2026-03-30_건보료연말정산');
   process.exit(1);

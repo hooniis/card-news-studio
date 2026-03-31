@@ -7,9 +7,7 @@
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #7C3AED;
-      --primary-dark: #4C1D95;
-      --accent: #F59E0B;
+      --primary: #DB2777;
       --text-light: #FFFFFF;
       --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
@@ -30,7 +28,15 @@
       position: relative;
       overflow: hidden;
       font-family: var(--font-main);
-      background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 50%, #2E1065 100%);
+      background-image: url('../cover.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
     }
 
     .card-content {
@@ -51,33 +57,27 @@
       color: var(--text-light);
       line-height: 1.2;
       letter-spacing: -0.03em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
       margin-bottom: 20px;
-    }
-
-    .headline .accent {
-      color: var(--accent);
     }
 
     .sub-headline {
       font-size: 30px;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.5;
       letter-spacing: -0.01em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    .product-hero {
+    .photo-credit {
       position: absolute;
-      top: 80px;
-      right: 40px;
-      z-index: 0;
-    }
-
-    .product-hero img {
-      width: 520px;
-      height: auto;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
-      transform: rotate(8deg);
+      top: 40px;
+      right: 80px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      z-index: 1;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
     .account-name {
@@ -100,28 +100,15 @@
       font-weight: 500;
       z-index: 1;
     }
-
-    /* 배경 장식 */
-    .bg-glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
-      top: -100px;
-      right: -100px;
-    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="bg-glow"></div>
-    <div class="product-hero">
-      <img src="../product.png" alt="촉촉한 황치즈칩 패키지">
-    </div>
+    <div class="overlay"></div>
+    <span class="photo-credit">사진=뉴스후플러스</span>
     <div class="card-content">
-      <h1 class="headline"><span class="accent">품절대란</span> 그 과자,<br>드디어 돌아온다!</h1>
-      <p class="sub-headline">촉촉한 황치즈칩 4월 재출시</p>
+      <h1 class="headline">여의도 벚꽃축제,<br>4월 3일 활짝 열려요</h1>
+      <p class="sub-headline">올해는 밤에도 즐긴다</p>
     </div>
     <span class="account-name">@요즘뭔일</span>
     <span class="page-indicator">1/6</span>

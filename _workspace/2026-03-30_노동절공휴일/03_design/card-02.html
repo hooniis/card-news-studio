@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 2 — 무슨 일이 있었냐면요</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DC2626;
+      --primary-light: #FEE2E2;
+      --primary-bg: #FFF5F5;
+      --accent: #F59E0B;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: var(--bg-light);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .icon-block {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 36px 40px;
+      background: var(--primary-bg);
+      border-radius: 20px;
+      border-left: 6px solid var(--primary);
+    }
+
+    .icon-block .emoji {
+      font-size: 56px;
+      flex-shrink: 0;
+    }
+
+    .icon-block .text {
+      font-size: 38px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+
+    .icon-block .text .highlight {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .sub-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 40px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 2px solid #E2E8F0;
+    }
+
+    .sub-info .emoji {
+      font-size: 40px;
+      flex-shrink: 0;
+    }
+
+    .sub-info .text {
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">무슨 일이 있었냐면요</h2>
+      </div>
+      <div class="card-body">
+        <div class="icon-block">
+          <span class="emoji">🏛️</span>
+          <div class="text">
+            노동절을 공휴일로 바꾸는<br>
+            법안이 <span class="highlight">국회를 통과</span>했어요.
+          </div>
+        </div>
+        <div class="sub-info">
+          <span class="emoji">📋</span>
+          <div class="text">
+            본회의만 넘으면 확정이에요.
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">2/7</span>
+  </div>
+</body>
+</html>

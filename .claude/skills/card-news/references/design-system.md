@@ -77,10 +77,36 @@ Google Fonts CDN 사용:
 ## 4. 카드 유형별 레이아웃
 
 ### 커버 카드
-- 배경: 그래디언트 또는 단색 (어두운 배경 + 밝은 텍스트 권장)
-- 제목: 중앙 배치, 56~72px
+- 배경: 그래디언트, 단색, 또는 **이미지 배경** (어두운 배경 + 밝은 텍스트 권장)
+- 제목: 중앙 배치, 72~84px
 - 서브 제목: 제목 아래, 28~32px
 - 장식: 주제를 암시하는 이모지 또는 기하학적 요소
+
+#### 커버 이미지 배경 옵션
+소스 이미지가 제공된 경우, 커버 카드에 이미지 배경을 사용할 수 있다:
+- 이미지를 `background-image`로 전체 커버에 채우고 `object-fit: cover` 처리
+- 반드시 어두운 그래디언트 오버레이를 씌워 텍스트 가독성 확보
+- 오버레이: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)`
+- 텍스트는 하단 정렬하여 오버레이가 짙은 영역 위에 배치
+- 이미지가 없으면 기존 그래디언트 배경 사용
+
+```css
+/* 커버 이미지 배경 */
+.card.cover-image {
+  background-image: url('이미지경로');
+  background-size: cover;
+  background-position: center;
+}
+.card.cover-image .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
+}
+.card.cover-image .card-content {
+  justify-content: flex-end;
+  z-index: 1;
+}
+```
 
 ### 본문 카드
 - 배경: 밝은 단색 (`--bg-light`)
