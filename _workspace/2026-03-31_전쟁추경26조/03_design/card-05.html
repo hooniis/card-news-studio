@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 — 알아둘 것</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F766E;
+      --primary-light: #CCFBF1;
+      --primary-bg: #F0FDFA;
+      --accent: #EAB308;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: var(--bg-light);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header { margin-bottom: 16px; }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px 32px;
+      border-radius: 16px;
+    }
+
+    .check-item:nth-child(1) {
+      background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+    }
+    .check-item:nth-child(2) {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+    }
+    .check-item:nth-child(3) {
+      background: linear-gradient(135deg, #FEE2E2 0%, #FEF2F2 100%);
+    }
+
+    .check-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+
+    .check-item:nth-child(1) .check-icon {
+      background: var(--primary);
+      color: var(--text-light);
+    }
+    .check-item:nth-child(2) .check-icon {
+      background: var(--accent);
+      color: var(--text-dark);
+    }
+    .check-item:nth-child(3) .check-icon {
+      background: #DC2626;
+      color: var(--text-light);
+    }
+
+    .check-text {
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      padding-top: 6px;
+    }
+
+    .check-text .highlight {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .check-text .warn {
+      font-weight: 700;
+      color: #B45309;
+    }
+
+    .check-text .danger {
+      font-weight: 700;
+      color: #DC2626;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">이것도 알아두세요 📌</h2>
+      </div>
+      <div class="card-body">
+        <div class="checklist">
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text"><span class="highlight">적자국채 없이</span> 초과세수로 충당했어요</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">전쟁 장기화 시 <span class="warn">2차 추경 가능성</span>도 있어요</div>
+          </div>
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-text">OECD 성장률 전망 <span class="danger">2.1% → 1.7%</span> 하향</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/6</span>
+  </div>
+</body>
+</html>

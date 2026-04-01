@@ -8,6 +8,7 @@ import { renderAllCards } from './lib/html-renderer.js';
 import { parseCopyFile } from './lib/copy-parser.js';
 import { postCarousel } from './lib/instagram-client.js';
 import { postThreadsCarousel, uploadImagesToMeta } from './lib/threads-client.js';
+import { sendMessage, sendMediaGroup } from './lib/telegram-client.js';
 
 const args = process.argv.slice(2);
 const flags = args.filter(a => a.startsWith('--'));
@@ -20,6 +21,7 @@ if (!workDir) {
   console.error('    --render-only   렌더링만 수행');
   console.error('    --publish-only  기존 이미지로 게시만 수행');
   console.error('    --threads       Threads에도 동시 게시');
+  console.error('    --notify        렌더링 후 텔레그램으로 검토 요청');
   console.error('');
   console.error('  예시: node scripts/pipeline.js _workspace/2026-03-30_건보료연말정산');
   process.exit(1);
@@ -29,6 +31,7 @@ const dryRun = flags.includes('--dry-run');
 const renderOnly = flags.includes('--render-only');
 const publishOnly = flags.includes('--publish-only');
 const includeThreads = flags.includes('--threads');
+const notifyTelegram = flags.includes('--notify');
 
 const designDir = resolve(workDir, '03_design');
 const imagesDir = resolve(workDir, '05_images');
@@ -44,7 +47,7 @@ console.log('═'.repeat(50));
 console.log('  카드뉴스 파이프라인');
 console.log('═'.repeat(50));
 console.log(`  작업 디렉토리: ${workDir}`);
-console.log(`  모드: ${dryRun ? 'Dry Run (렌더링만)' : renderOnly ? '렌더링만' : publishOnly ? '게시만' : '풀 파이프라인'}`);
+console.log(`  모드: ${dryRun ? 'Dry Run (렌더링만)' : renderOnly ? '렌더링만' : publishOnly ? '게시만' : notifyTelegram ? '렌더링 + 텔레그램 알림' : '풀 파이프라인'}`);
 
 let pngFiles;
 
@@ -68,8 +71,29 @@ if (!publishOnly) {
   console.log(`\n[1/2] 🎨 렌더링 건너뛰기 (기존 이미지 ${pngFiles.length}장 사용)`);
 }
 
+// Step 1.5: 텔레그램 알림
+if (notifyTelegram && pngFiles && pngFiles.length > 0) {
+  const telegramMissing = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID'].filter(v => !process.env[v]);
+  if (telegramMissing.length > 0) {
+    console.error(`\n  ⚠️ 텔레그램 알림 건너뛰기 (.env에 ${telegramMissing.join(', ')} 필요)`);
+  } else {
+    const dirName = workDir.split('/').pop();
+    console.log('\n📱 텔레그램 알림');
+    const albumCaption = `📋 <b>${dirName}</b>\n카드 ${pngFiles.length}장 검토 요청`;
+    await sendMediaGroup(pngFiles, albumCaption);
+    console.log(`  ✅ 이미지 ${pngFiles.length}장 전송 완료`);
+
+    if (existsSync(copyPath)) {
+      const { fullCaption } = await parseCopyFile(copyPath);
+      const preview = fullCaption.length > 1024 ? fullCaption.slice(0, 1024) + '...' : fullCaption;
+      await sendMessage(`📝 <b>게시글 캡션:</b>\n\n${preview}`);
+      console.log('  ✅ 캡션 전송 완료');
+    }
+  }
+}
+
 // Step 2: 게시
-if (!dryRun && !renderOnly) {
+if (!dryRun && !renderOnly && !notifyTelegram) {
   const requiredEnvVars = [
     'INSTAGRAM_ACCESS_TOKEN',
     'INSTAGRAM_ACCOUNT_ID',

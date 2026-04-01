@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 2 — 경기 결과</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DC2626;
+      --primary-light: #FEE2E2;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+    .match-box {
+      padding: 36px 40px; border-radius: 16px; border-left: 5px solid;
+    }
+    .match-box.loss1 { background: #FEF2F2; border-left-color: #DC2626; }
+    .match-box.loss2 { background: #FFF7ED; border-left-color: #EA580C; }
+    .match-date { font-size: 26px; font-weight: 500; color: var(--text-muted); margin-bottom: 12px; }
+    .match-teams { font-size: 40px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .match-score { font-size: 64px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+    .loss1 .match-score { color: #DC2626; }
+    .loss2 .match-score { color: #EA580C; }
+    .match-detail { font-size: 28px; font-weight: 400; color: var(--text-muted); margin-top: 8px; }
+    .summary-box {
+      padding: 28px 36px; background: #1E293B; border-radius: 16px; text-align: center;
+    }
+    .summary-box .text { font-size: 38px; font-weight: 700; color: var(--text-light); }
+    .summary-box .text .red { color: #FCA5A5; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">유럽 원정, 완전히 무너졌다 💀</h2>
+      </div>
+      <div class="card-body">
+        <div class="match-box loss1">
+          <div class="match-date">3월 28일 · 코트디부아르 원정</div>
+          <div class="match-teams">🇰🇷 한국 vs 코트디부아르 🇨🇮</div>
+          <div class="match-score">0 : 4</div>
+          <div class="match-detail">전반 2실점 + 후반 2실점, 속수무책</div>
+        </div>
+        <div class="match-box loss2">
+          <div class="match-date">4월 1일 · 오스트리아 원정</div>
+          <div class="match-teams">🇰🇷 한국 vs 오스트리아 🇦🇹</div>
+          <div class="match-score">0 : 1</div>
+          <div class="match-detail">자비처 후반 3분 결승골</div>
+        </div>
+        <div class="summary-box">
+          <div class="text">2경기 합산 <span class="red">0득점 5실점</span></div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">2/6</span>
+  </div>
+</body>
+</html>

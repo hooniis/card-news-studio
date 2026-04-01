@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 3 — 누가 얼마나?</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0F766E;
+      --primary-light: #CCFBF1;
+      --primary-bg: #F0FDFA;
+      --accent: #EAB308;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-main);
+      background: var(--bg-light);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header { margin-bottom: 16px; }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tier-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 36px;
+      border-radius: 16px;
+    }
+
+    .tier-item:nth-child(1) {
+      background: var(--primary-bg);
+      border-left: 5px solid var(--primary);
+    }
+    .tier-item:nth-child(2) {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FFFBEB 100%);
+      border-left: 5px solid var(--accent);
+    }
+    .tier-item:nth-child(3) {
+      background: linear-gradient(135deg, #FEE2E2 0%, #FEF2F2 100%);
+      border-left: 5px solid #DC2626;
+    }
+
+    .tier-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .tier-label {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .tier-target {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .tier-amount {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .tier-item:nth-child(1) .tier-amount { color: var(--primary); }
+    .tier-item:nth-child(2) .tier-amount { color: #B45309; }
+    .tier-item:nth-child(3) .tier-amount { color: #DC2626; }
+
+    .total-box {
+      padding: 24px 36px;
+      background: var(--primary);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .total-box .text {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: -0.01em;
+    }
+
+    .total-box .text .number {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-muted);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 24px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">누가 얼마나 받나요? 💰</h2>
+      </div>
+      <div class="card-body">
+        <div class="tier-list">
+          <div class="tier-item">
+            <div class="tier-left">
+              <div class="tier-label">소득 하위 70%</div>
+              <div class="tier-target">3,256만 명</div>
+            </div>
+            <div class="tier-amount">10만 원</div>
+          </div>
+          <div class="tier-item">
+            <div class="tier-left">
+              <div class="tier-label">차상위·한부모</div>
+              <div class="tier-target">36만 명</div>
+            </div>
+            <div class="tier-amount">40만 원</div>
+          </div>
+          <div class="tier-item">
+            <div class="tier-left">
+              <div class="tier-label">기초생활수급자</div>
+              <div class="tier-target">285만 명</div>
+            </div>
+            <div class="tier-amount">60만 원</div>
+          </div>
+        </div>
+        <div class="total-box">
+          <div class="text">총 <span class="number">3,577만 명</span> 대상</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">3/6</span>
+  </div>
+</body>
+</html>

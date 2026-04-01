@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 — 앞으로는?</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DC2626;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .timeline {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .timeline-item {
+      display: flex; align-items: center; gap: 24px;
+      padding: 28px 32px;
+      background: #F1F5F9;
+      border-left: 4px solid #94A3B8;
+    }
+    .timeline-item:first-child { border-radius: 16px 16px 0 0; }
+    .timeline-item:last-child { border-radius: 0 0 16px 16px; }
+    .timeline-item.highlight { background: #FEF2F2; border-left-color: #DC2626; }
+    .timeline-item.now { background: #EFF6FF; border-left-color: #2563EB; }
+    .timeline-date {
+      font-size: 28px; font-weight: 700; color: var(--text-muted); flex-shrink: 0; min-width: 120px;
+    }
+    .timeline-item.highlight .timeline-date { color: #DC2626; }
+    .timeline-item.now .timeline-date { color: #2563EB; }
+    .timeline-text {
+      font-size: 36px; font-weight: 500; color: var(--text-dark);
+      line-height: 1.4; letter-spacing: -0.01em;
+    }
+    .timeline-text .bold { font-weight: 700; }
+    .timeline-text .red { font-weight: 700; color: #DC2626; }
+    .timeline-text .blue { font-weight: 700; color: #2563EB; }
+    .bottom-box {
+      margin-top: 8px; padding: 28px 36px;
+      background: linear-gradient(135deg, #FEE2E2 0%, #FEF2F2 100%);
+      border-radius: 16px; border-left: 5px solid #DC2626;
+      text-align: center;
+    }
+    .bottom-box .text { font-size: 36px; font-weight: 700; color: var(--text-dark); line-height: 1.4; }
+    .bottom-box .text .red { color: #DC2626; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">월드컵까지 남은 시간 ⏰</h2>
+      </div>
+      <div class="card-body">
+        <div class="timeline">
+          <div class="timeline-item highlight">
+            <div class="timeline-date">4월 1일</div>
+            <div class="timeline-text">오스트리아전 <span class="red">0-1 패배</span></div>
+          </div>
+          <div class="timeline-item now">
+            <div class="timeline-date">현재</div>
+            <div class="timeline-text"><span class="blue">마지막 평가전 종료</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">6월</div>
+            <div class="timeline-text"><span class="bold">2026 북중미 월드컵 개막</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">조별리그</div>
+            <div class="timeline-text">프랑스 · 온두라스 · <span class="bold">남아공</span></div>
+          </div>
+        </div>
+        <div class="bottom-box">
+          <div class="text">이 상태로 <span class="red">프랑스</span>를 만난다고? 😰</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/6</span>
+  </div>
+</body>
+</html>
