@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 1 - 커버</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --accent: #F472B6;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background-image: url('https://imgnews.pstatic.net/image/015/2026/04/04/0005270904_001_20260404134612481.jpg?type=w860');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      left: 140px;
+      right: 140px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    .headline {
+      font-size: 80px;
+      font-weight: 800;
+      color: var(--text-light);
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .subheadline {
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-light);
+      line-height: 1.5;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 2;
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 2;
+    }
+
+    .credit {
+      position: absolute;
+      bottom: 80px;
+      right: 80px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="overlay"></div>
+    <div class="card-content">
+      <div class="headline">조식도 안 먹고
+어딜 가나 했더니</div>
+      <div class="subheadline">이상한 여행이 대세 됐다 🏃‍♀️</div>
+    </div>
+    <div class="credit">사진=파라다이스</div>
+    <div class="account-name">@요즘뭔일</div>
+    <div class="page-indicator">1/8</div>
+  </div>
+</body>
+</html>

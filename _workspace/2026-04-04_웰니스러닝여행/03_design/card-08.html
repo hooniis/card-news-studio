@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 8 - CTA</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --accent: #F472B6;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #D1FAE5 0%, #6EE7B7 50%, #34D399 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .headline {
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: rgba(5, 150, 105, 0.4);
+      border-radius: 2px;
+      margin-bottom: 50px;
+    }
+
+    .cta-button {
+      background: var(--text-light);
+      color: var(--primary);
+      padding: 24px 48px;
+      border-radius: 12px;
+      font-size: 34px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+      margin-bottom: 40px;
+      line-height: 1.4;
+    }
+
+    .comment-prompt {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text-dark);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 50px;
+    }
+
+    .source-info {
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(30, 41, 59, 0.7);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="headline">여행의 새로운 방식,<br>어때요? 💬</div>
+      <div class="divider"></div>
+      <div class="cta-button">도움이 됐다면<br>저장 & 공유 부탁해요!</div>
+      <div class="comment-prompt">여러분은 어떤 여행 스타일을 좋아하시나요?<br>댓글로 알려주세요 💬</div>
+      <div class="source-info">출처: 한국경제 / 신용현 기자<br>사진: 파라다이스, 한국경제</div>
+    </div>
+    <div class="account-name">@요즘뭔일</div>
+    <div class="page-indicator">8/8</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 2 - 현장 스케치</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --accent: #F472B6;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-light);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .headline {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.3;
+      margin-bottom: 40px;
+    }
+
+    .body-text {
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-dark);
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .body-text .highlight {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .quote-box {
+      background: #FFFFFF;
+      border-left: 4px solid var(--primary);
+      padding: 28px 32px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .quote-text {
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="headline">오전 8시, 해운대 호텔 로비<br>트레이닝복 입은 사람들이 모였어요</div>
+      <div class="body-text">
+        4월 2일 아침, 파라다이스 호텔 부산 로비.<br><br>
+        약 <span class="highlight">20명</span>이 스트레칭을 마치고 출발했어요.<br><br>
+        코스는 <span class="highlight">5km</span>.<br>
+        해운대 블루라인파크 데크길 → 해월전망대.<br><br>
+        <span class="highlight">km당 6~7분</span> 페이스로<br>
+        자연스럽게 그룹이 나뉘었어요.
+      </div>
+      <div class="quote-box">
+        <div class="quote-text">"혼자보다 같은 목적으로 모인 사람들과 뛰니까 더 좋다"</div>
+      </div>
+    </div>
+    <div class="account-name">@요즘뭔일</div>
+    <div class="page-indicator">2/8</div>
+  </div>
+</body>
+</html>

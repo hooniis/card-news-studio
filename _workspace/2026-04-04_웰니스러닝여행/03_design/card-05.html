@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 - 소셜 웰니스</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --accent: #F472B6;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #E2E8F0;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .main-title {
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 60px;
+      line-height: 1.4;
+    }
+
+    .comparison {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .comparison-box {
+      flex: 1;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .before-box {
+      background: #FFFFFF;
+      border: 2px solid #CBD5E1;
+    }
+
+    .after-box {
+      background: #FFFFFF;
+      border: 3px solid var(--primary);
+    }
+
+    .box-label {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .box-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .box-text {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .insight-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 28px 32px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .insight-text {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .insight-highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .account-name {
+      position: absolute;
+      bottom: 40px;
+      left: 80px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .page-indicator {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="main-title">'소셜 웰니스'</div>
+      <div class="subtitle">함께 움직이고, 각자 쉬는<br>새로운 웰니스 💚</div>
+      <div class="comparison">
+        <div class="comparison-box before-box">
+          <div class="box-label">📍</div>
+          <div class="box-title">기존 웰니스</div>
+          <div class="box-text">스파·명상 중심<br>혼자 회복하는 여행</div>
+        </div>
+        <div class="comparison-box after-box">
+          <div class="box-label">📍</div>
+          <div class="box-title">새로운 웰니스</div>
+          <div class="box-text">함께 땀 흘리고<br>이후 각자 쉬는<br>'소셜 웰니스'</div>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-text">
+          웰니스 초점 변화:<br>
+          <span class="insight-highlight">'무엇을 하느냐'</span> → <span class="insight-highlight">'누구와 어떻게 연결될 것인가'</span>
+        </div>
+      </div>
+    </div>
+    <div class="account-name">@요즘뭔일</div>
+    <div class="page-indicator">5/8</div>
+  </div>
+</body>
+</html>
