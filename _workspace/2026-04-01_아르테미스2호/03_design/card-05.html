@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 — 비행 경로</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366F1;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+    .step {
+      display: flex; align-items: center; gap: 24px;
+      padding: 24px 32px;
+      background: #EEF2FF; border-left: 4px solid var(--primary);
+    }
+    .step:first-child { border-radius: 16px 16px 0 0; }
+    .step:nth-child(2) { background: #F5F3FF; }
+    .step:nth-child(3) { background: #FAF5FF; }
+    .step.highlight { background: #1E1B4B; border-left-color: #FCD34D; }
+    .step:last-of-type { border-radius: 0 0 16px 16px; }
+    .step .emoji { font-size: 36px; flex-shrink: 0; }
+    .step .text { font-size: 36px; font-weight: 500; color: var(--text-dark); line-height: 1.4; letter-spacing: -0.01em; }
+    .step .text .bold { font-weight: 700; color: var(--primary); }
+    .step.highlight .text { color: var(--text-light); }
+    .step.highlight .text .bold { color: #FCD34D; }
+    .arrow { display: flex; justify-content: center; padding: 4px 0; font-size: 28px; color: var(--primary); }
+    .fun-fact {
+      margin-top: 20px; padding: 28px 36px;
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      border-radius: 16px; border-left: 5px solid #F59E0B;
+      text-align: center;
+    }
+    .fun-fact .text { font-size: 34px; font-weight: 600; color: var(--text-dark); line-height: 1.4; }
+    .fun-fact .text .orange { color: #D97706; font-weight: 700; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">10일간 이렇게 비행해요 🛰️</h2>
+      </div>
+      <div class="card-body">
+        <div class="step">
+          <div class="emoji">🚀</div>
+          <div class="text">발사 후 <span class="bold">지구 2바퀴</span> 회전</div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="step">
+          <div class="emoji">🌍</div>
+          <div class="text">지구 중력으로 <span class="bold">달 전이 궤도</span> 진입</div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="step">
+          <div class="emoji">🌙</div>
+          <div class="text">달 약 <span class="bold">7,000km</span>까지 근접 비행</div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="step highlight">
+          <div class="emoji">🔭</div>
+          <div class="text"><span class="bold">달 뒷면 통과</span> + 크레이터 관측</div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="step">
+          <div class="emoji">🪂</div>
+          <div class="text">귀환 후 <span class="bold">바다 착수</span> (시속 4만km!)</div>
+        </div>
+        <div class="fun-fact">
+          <div class="text">비행 중간중간 <span class="orange">NASA 생중계</span>로 공개 예정 📺</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/6</span>
+  </div>
+</body>
+</html>

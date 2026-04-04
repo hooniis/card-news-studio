@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 2 — 스타벅스 혜택</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7C3AED;
+      --primary-light: #EDE9FE;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .section-label { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: -8px; }
+    .benefit-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 28px 28px; border-radius: 16px;
+    }
+    .benefit-item.always { background: linear-gradient(135deg, #EDE9FE 0%, #F5F3FF 100%); border: 2px solid rgba(124,58,237,0.12); }
+    .benefit-item.monthly { background: linear-gradient(135deg, #DCFCE7 0%, #F0FDF4 100%); border: 2px solid rgba(5,150,105,0.12); }
+    .benefit-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; flex-shrink: 0;
+    }
+    .benefit-item.always .benefit-icon { background: var(--primary); color: white; }
+    .benefit-item.monthly .benefit-icon { background: #059669; color: white; }
+    .benefit-text .title { font-size: 34px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .benefit-text .desc { font-size: 28px; font-weight: 400; color: var(--text-muted); line-height: 1.4; }
+    .benefit-text .desc .purple { font-weight: 700; color: var(--primary); }
+    .benefit-text .desc .green { font-weight: 700; color: #059669; }
+    .stamp-box {
+      padding: 32px 36px; border-radius: 16px; text-align: center;
+      background: var(--primary); color: var(--text-light);
+    }
+    .stamp-box .cups { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
+    .stamp-box .cup { font-size: 44px; }
+    .stamp-box .text { font-size: 38px; font-weight: 700; line-height: 1.4; }
+    .stamp-box .text .gold { color: #FDE68A; }
+    .tip-box {
+      padding: 20px 28px; border-radius: 12px;
+      background: #FEF3C7; text-align: center;
+    }
+    .tip-box .text { font-size: 30px; font-weight: 500; color: var(--text-dark); }
+    .tip-box .text .amber { font-weight: 700; color: #B45309; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">스타벅스 개인컵 혜택 ☕</h2>
+      </div>
+      <div class="card-body">
+        <div class="section-label">📌 상시 혜택</div>
+        <div class="benefit-item always">
+          <div class="benefit-icon">☕</div>
+          <div class="benefit-text">
+            <div class="title">개인컵 사용 시</div>
+            <div class="desc"><span class="purple">400원 할인</span> 또는 에코별 1개 중 선택</div>
+          </div>
+        </div>
+        <div class="section-label">📅 매월 10일 특별 혜택</div>
+        <div class="benefit-item monthly">
+          <div class="benefit-icon">🎰</div>
+          <div class="benefit-text">
+            <div class="title">일회용 컵 없는 날</div>
+            <div class="desc">에코별 추가 + <span class="green">스크래치 이벤트</span><br>아메리카노 쿠폰 당첨 기회!</div>
+          </div>
+        </div>
+        <div class="stamp-box">
+          <div class="cups">
+            <span class="cup">☕</span>
+            <span class="cup">☕</span>
+            <span class="cup">☕</span>
+            <span class="cup">☕</span>
+            <span class="cup">☕</span>
+          </div>
+          <div class="text">개인컵 5번 사용 → <span class="gold">아메리카노 1잔 무료!</span></div>
+        </div>
+        <div class="tip-box">
+          <div class="text">💡 <span class="amber">스타벅스 앱</span>에서 참여 가능해요</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">2/6</span>
+  </div>
+</body>
+</html>

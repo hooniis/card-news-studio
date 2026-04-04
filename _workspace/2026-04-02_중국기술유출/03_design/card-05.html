@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 — 대응</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DC2626;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .compare-row { display: flex; gap: 20px; }
+    .compare-card {
+      flex: 1; padding: 28px 24px; border-radius: 16px; text-align: center;
+    }
+    .compare-card.korea { background: #FEF2F2; border: 2px solid rgba(220,38,38,0.12); }
+    .compare-card.usa { background: #EFF6FF; border: 2px solid rgba(37,99,235,0.12); }
+    .compare-card .flag { font-size: 48px; margin-bottom: 12px; }
+    .compare-card .country { font-size: 30px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .compare-card .desc { font-size: 28px; font-weight: 400; color: var(--text-muted); line-height: 1.5; }
+    .compare-card .desc .bold { font-weight: 700; color: var(--text-dark); }
+    .compare-card.korea .highlight { font-size: 36px; font-weight: 800; color: var(--primary); margin-top: 12px; }
+    .compare-card.usa .highlight { font-size: 36px; font-weight: 800; color: #2563EB; margin-top: 12px; }
+    .solution-list { display: flex; flex-direction: column; gap: 12px; }
+    .solution-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 24px 28px; border-radius: 16px;
+    }
+    .solution-item:nth-child(1) { background: #ECFDF5; border-left: 5px solid #059669; }
+    .solution-item:nth-child(2) { background: #EFF6FF; border-left: 5px solid #2563EB; }
+    .solution-item:nth-child(3) { background: #FDF2F8; border-left: 5px solid #DB2777; }
+    .solution-icon { font-size: 36px; flex-shrink: 0; }
+    .solution-text { font-size: 34px; font-weight: 500; color: var(--text-dark); line-height: 1.5; letter-spacing: -0.01em; }
+    .solution-text .green { font-weight: 700; color: #059669; }
+    .solution-text .blue { font-weight: 700; color: #2563EB; }
+    .solution-text .pink { font-weight: 700; color: #DB2777; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">어떻게 막아야 할까? ⚖️</h2>
+      </div>
+      <div class="card-body">
+        <div class="compare-row">
+          <div class="compare-card korea">
+            <div class="flag">🇰🇷</div>
+            <div class="country">한국</div>
+            <div class="desc">처벌 약하고<br>실형 드묾</div>
+            <div class="highlight">솜방망이 처벌</div>
+          </div>
+          <div class="compare-card usa">
+            <div class="flag">🇺🇸</div>
+            <div class="country">미국</div>
+            <div class="desc">경제스파이법으로<br><span class="bold">국가 안보</span> 차원 대응</div>
+            <div class="highlight">최대 징역 15년</div>
+          </div>
+        </div>
+        <div class="solution-list">
+          <div class="solution-item">
+            <div class="solution-icon">⚖️</div>
+            <div class="solution-text"><span class="green">징벌적 배상</span> 도입 — 부당이득의 수배</div>
+          </div>
+          <div class="solution-item">
+            <div class="solution-icon">🛡️</div>
+            <div class="solution-text">중소기업 <span class="blue">기술 보호 지원</span> 확대</div>
+          </div>
+          <div class="solution-item">
+            <div class="solution-icon">🔍</div>
+            <div class="solution-text">퇴사자 관리 + <span class="pink">사전 컨설팅</span> 강화</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/6</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 4 — 누가 타나?</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366F1;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .crew-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .crew-card {
+      padding: 28px 24px; border-radius: 16px; text-align: center;
+    }
+    .crew-card:nth-child(1) { background: #EEF2FF; border: 2px solid rgba(99,102,241,0.15); }
+    .crew-card:nth-child(2) { background: #FDF2F8; border: 2px solid rgba(219,39,119,0.12); }
+    .crew-card:nth-child(3) { background: #ECFDF5; border: 2px solid rgba(5,150,105,0.12); }
+    .crew-card:nth-child(4) { background: #FFFBEB; border: 2px solid rgba(234,179,8,0.12); }
+    .crew-emoji { font-size: 48px; margin-bottom: 8px; }
+    .crew-name { font-size: 30px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .crew-role { font-size: 24px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+    .crew-badge {
+      display: inline-block; padding: 6px 16px; border-radius: 20px;
+      font-size: 22px; font-weight: 700;
+    }
+    .crew-card:nth-child(1) .crew-badge { background: #4F46E5; color: white; }
+    .crew-card:nth-child(2) .crew-badge { background: #DB2777; color: white; }
+    .crew-card:nth-child(3) .crew-badge { background: #059669; color: white; }
+    .crew-card:nth-child(4) .crew-badge { background: #CA8A04; color: white; }
+    .note-box {
+      padding: 24px 32px; background: #1E1B4B; border-radius: 16px; text-align: center;
+    }
+    .note-box .text { font-size: 32px; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .note-box .text .gold { color: #FCD34D; font-weight: 700; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">누가 달에 가나? 👩‍🚀</h2>
+      </div>
+      <div class="card-body">
+        <div class="crew-grid">
+          <div class="crew-card">
+            <div class="crew-emoji">👨‍🚀</div>
+            <div class="crew-name">리드 와이즈먼</div>
+            <div class="crew-role">사령관</div>
+            <div class="crew-badge">총괄 지휘</div>
+          </div>
+          <div class="crew-card">
+            <div class="crew-emoji">👩‍🚀</div>
+            <div class="crew-name">크리스티나 코흐</div>
+            <div class="crew-role">미션 스페셜리스트</div>
+            <div class="crew-badge">최초 여성 🌟</div>
+          </div>
+          <div class="crew-card">
+            <div class="crew-emoji">👨‍🚀</div>
+            <div class="crew-name">빅터 글로버</div>
+            <div class="crew-role">파일럿</div>
+            <div class="crew-badge">최초 유색인종</div>
+          </div>
+          <div class="crew-card">
+            <div class="crew-emoji">👨‍🚀</div>
+            <div class="crew-name">제레미 한센</div>
+            <div class="crew-role">미션 스페셜리스트</div>
+            <div class="crew-badge">최초 비미국인 🇨🇦</div>
+          </div>
+        </div>
+        <div class="note-box">
+          <div class="text">아폴로는 전원 백인 남성 → 아르테미스는 <span class="gold">다양성의 시대</span></div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">4/6</span>
+  </div>
+</body>
+</html>

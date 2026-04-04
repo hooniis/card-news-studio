@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 3 — 수법</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DC2626;
+      --primary-light: #FEE2E2;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 0; }
+    .step {
+      display: flex; align-items: center; gap: 24px;
+      padding: 28px 32px;
+    }
+    .step:nth-child(odd) { background: #FEF2F2; }
+    .step:nth-child(even) { background: #FFF7ED; }
+    .step:first-child { border-radius: 16px 16px 0 0; }
+    .step:last-of-type { border-radius: 0 0 16px 16px; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; font-weight: 800; flex-shrink: 0;
+      background: var(--primary); color: var(--text-light);
+    }
+    .step:nth-child(even) .step-num { background: #EA580C; }
+    .step-text { font-size: 36px; font-weight: 500; color: var(--text-dark); line-height: 1.5; letter-spacing: -0.01em; }
+    .step-text .bold { font-weight: 700; }
+    .step-text .red { font-weight: 700; color: var(--primary); }
+    .step-text .orange { font-weight: 700; color: #EA580C; }
+    .step-arrow { display: flex; justify-content: center; padding: 2px 0; font-size: 24px; color: var(--text-muted); }
+    .warning-box {
+      margin-top: 24px; padding: 28px 36px;
+      background: var(--primary); border-radius: 16px; text-align: center;
+    }
+    .warning-box .text { font-size: 36px; font-weight: 700; color: var(--text-light); line-height: 1.5; }
+    .warning-box .text .gold { color: #FDE68A; }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">중국의 기술 빼가기 수법 🕵️</h2>
+      </div>
+      <div class="card-body">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">국내 인력 용역회사를 <span class="red">통째로 인수</span></div>
+        </div>
+        <div class="step-arrow">▼</div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">겉으로는 한국 회사,<br>실제론 <span class="orange">중국 R&D 시설</span></div>
+        </div>
+        <div class="step-arrow">▼</div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">핵심 기술자에 <span class="red">연봉 3~4배</span> 제안</div>
+        </div>
+        <div class="step-arrow">▼</div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text"><span class="orange">도면·기밀 자료</span> 유출 + 이직</div>
+        </div>
+        <div class="warning-box">
+          <div class="text">홍콩 투자회사 → 한국 법인 설립<br><span class="gold">페이퍼컴퍼니로 실체를 감춘다</span></div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">3/6</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 5 — 투자 포인트</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-light: #DBEAFE;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .section-label { font-size: 30px; font-weight: 700; color: #059669; margin-bottom: -8px; }
+    .section-label.warn { color: #DC2626; }
+    .point-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 24px 28px; border-radius: 16px;
+    }
+    .point-item.good { background: #DCFCE7; border: 2px solid rgba(5,150,105,0.1); }
+    .point-item.bad { background: #FEF2F2; border: 2px solid rgba(220,38,38,0.1); }
+    .point-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .point-item.good .point-icon { background: #059669; color: white; }
+    .point-item.bad .point-icon { background: #DC2626; color: white; }
+    .point-text { font-size: 34px; font-weight: 500; color: var(--text-dark); line-height: 1.4; letter-spacing: -0.01em; }
+    .point-text .green { font-weight: 700; color: #059669; }
+    .point-text .red { font-weight: 700; color: #DC2626; }
+    .special-box {
+      padding: 28px 36px; border-radius: 16px;
+      background: linear-gradient(135deg, #DBEAFE 0%, #EFF6FF 100%);
+      border-left: 5px solid var(--primary); text-align: center;
+    }
+    .special-box .text { font-size: 36px; font-weight: 700; color: var(--text-dark); line-height: 1.5; }
+    .special-box .text .blue { color: var(--primary); }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">투자해도 될까? 🧐</h2>
+      </div>
+      <div class="card-body">
+        <div class="section-label">✅ 긍정 포인트</div>
+        <div class="point-item good">
+          <div class="point-icon">📡</div>
+          <div class="point-text">스타링크 <span class="green">반복 매출</span>이 가치 뒷받침</div>
+        </div>
+        <div class="point-item good">
+          <div class="point-icon">🛡️</div>
+          <div class="point-text"><span class="green">국방 계약</span> 기반 안정적 수주</div>
+        </div>
+        <div class="section-label warn">⚠️ 주의 포인트</div>
+        <div class="point-item bad">
+          <div class="point-icon">📈</div>
+          <div class="point-text">매출 대비 <span class="red">100배 이상</span> 밸류에이션</div>
+        </div>
+        <div class="point-item bad">
+          <div class="point-icon">🔬</div>
+          <div class="point-text">xAI 합병 시너지 <span class="red">아직 미검증</span></div>
+        </div>
+        <div class="special-box">
+          <div class="text">공모 물량 <span class="blue">30%를 개인투자자에 배정</span><br>일반 IPO 대비 매우 이례적!</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">5/6</span>
+  </div>
+</body>
+</html>

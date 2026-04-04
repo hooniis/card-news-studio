@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 1 — 커버</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --text-light: #FFFFFF;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main);
+      background-image: url('../cover.jpg');
+      background-size: cover; background-position: center;
+    }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.78) 100%);
+    }
+    .card-content {
+      position: absolute; left: 140px; right: 100px; bottom: 140px; top: 120px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      z-index: 1;
+    }
+    .headline {
+      font-size: 78px; font-weight: 800; color: var(--text-light);
+      line-height: 1.2; letter-spacing: -0.03em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 28px;
+    }
+    .sub-headline {
+      font-size: 32px; font-weight: 400; color: rgba(255,255,255,0.85);
+      line-height: 1.5; letter-spacing: -0.01em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .photo-credit {
+      position: absolute; top: 50px; right: 100px;
+      font-size: 14px; color: rgba(255,255,255,0.5); z-index: 1;
+    }
+    .account-name {
+      position: absolute; bottom: 50px; left: 140px;
+      font-size: 18px; font-weight: 600; letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.6); z-index: 1;
+    }
+    .page-indicator {
+      position: absolute; bottom: 50px; right: 100px;
+      font-size: 24px; color: rgba(255,255,255,0.6); font-weight: 500; z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="overlay"></div>
+    <span class="photo-credit">사진=로이터</span>
+    <div class="card-content">
+      <h1 class="headline">머스크, 3000조짜리<br>회사를 상장한다</h1>
+      <div class="sub-headline">스페이스X IPO, 역대 최대 기록 예고</div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">1/6</span>
+  </div>
+</body>
+</html>

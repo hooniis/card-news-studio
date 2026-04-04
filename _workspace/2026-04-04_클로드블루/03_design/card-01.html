@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 1 — 커버</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --text-light: #FFFFFF;
+      --text-muted: #94A3B8;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main);
+      background-image: url('../cover.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.85) 100%);
+    }
+    .card-content {
+      position: absolute; bottom: 120px; left: 140px; right: 140px;
+      z-index: 1;
+    }
+    .category {
+      display: inline-block; padding: 8px 20px; border-radius: 6px;
+      background: var(--primary); color: var(--text-light);
+      font-size: 26px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 28px;
+    }
+    .headline {
+      font-size: 78px; font-weight: 800; color: var(--text-light);
+      line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 24px;
+    }
+    .headline .blue { color: #60A5FA; }
+    .sub-text {
+      font-size: 36px; font-weight: 400; color: rgba(255,255,255,0.8);
+      line-height: 1.5; letter-spacing: -0.01em;
+    }
+    .photo-credit {
+      position: absolute; top: 50px; right: 80px;
+      font-size: 14px; color: rgba(255,255,255,0.5); z-index: 1;
+    }
+    .account-name {
+      position: absolute; bottom: 50px; left: 140px;
+      font-size: 18px; font-weight: 600; letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.5); z-index: 1;
+    }
+    .page-indicator {
+      position: absolute; bottom: 50px; right: 140px;
+      font-size: 24px; color: rgba(255,255,255,0.5); font-weight: 500; z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="overlay"></div>
+    <span class="photo-credit">사진=AI라이프경제</span>
+    <div class="card-content">
+      <div class="category">IT/테크</div>
+      <h1 class="headline">AI 만든 개발자가<br><span class="blue">AI에게 해고</span>당하고 있다</h1>
+      <div class="sub-text">실리콘밸리를 덮친 신조어 '클로드 블루'</div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">1/6</span>
+  </div>
+</body>
+</html>

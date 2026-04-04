@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 2 — 무슨 일?</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563EB;
+      --primary-light: #DBEAFE;
+      --bg-light: #F8FAFC;
+      --text-dark: #1E293B;
+      --text-light: #FFFFFF;
+      --text-muted: #64748B;
+      --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #E2E8F0; }
+    .card {
+      width: 1080px; height: 1080px; position: relative; overflow: hidden;
+      font-family: var(--font-main); background: var(--bg-light);
+    }
+    .card-content { position: absolute; top: 100px; left: 100px; right: 100px; bottom: 100px; display: flex; flex-direction: column; }
+    .card-header { margin-bottom: 16px; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 2px; margin-bottom: 24px; }
+    .headline { font-size: 54px; font-weight: 700; color: var(--text-dark); line-height: 1.3; letter-spacing: -0.02em; }
+    .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+    .big-stat {
+      padding: 36px 40px; border-radius: 16px; text-align: center;
+      background: linear-gradient(135deg, #DBEAFE 0%, #EFF6FF 100%);
+      border: 2px solid rgba(37,99,235,0.12);
+    }
+    .big-stat .label { font-size: 28px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+    .big-stat .number { font-size: 68px; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+    .big-stat .unit { font-size: 36px; font-weight: 700; }
+    .big-stat .sub { font-size: 28px; font-weight: 500; color: var(--text-muted); margin-top: 8px; }
+    .big-stat .sub .blue { font-weight: 700; color: var(--primary); }
+    .info-row { display: flex; gap: 16px; }
+    .info-card {
+      flex: 1; padding: 24px 20px; border-radius: 16px; text-align: center;
+    }
+    .info-card:nth-child(1) { background: #FEF3C7; }
+    .info-card:nth-child(2) { background: #DCFCE7; }
+    .info-card .emoji { font-size: 36px; margin-bottom: 8px; }
+    .info-card .label { font-size: 26px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px; }
+    .info-card .value { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; }
+    .info-card:nth-child(1) .value { color: #B45309; }
+    .info-card:nth-child(2) .value { color: #059669; }
+    .info-card .sub { font-size: 22px; font-weight: 400; color: var(--text-muted); margin-top: 4px; }
+    .bank-box {
+      padding: 24px 32px; border-radius: 16px;
+      background: #F1F5F9; text-align: center;
+    }
+    .bank-box .label { font-size: 26px; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+    .bank-box .names { font-size: 30px; font-weight: 600; color: var(--text-dark); }
+    .account-name { position: absolute; bottom: 50px; left: 100px; font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-muted); }
+    .page-indicator { position: absolute; bottom: 50px; right: 100px; font-size: 24px; color: var(--text-muted); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="card-header">
+        <div class="divider"></div>
+        <h2 class="headline">무슨 일이야? 🚀</h2>
+      </div>
+      <div class="card-body">
+        <div class="big-stat">
+          <div class="label">스페이스X 기업가치 목표</div>
+          <div class="number">2조<span class="unit"> 달러</span></div>
+          <div class="sub">한화 약 <span class="blue">3,022조원</span> | 기존 대비 14%↑</div>
+        </div>
+        <div class="info-row">
+          <div class="info-card">
+            <div class="emoji">📅</div>
+            <div class="label">예상 상장 시기</div>
+            <div class="value">6~7월</div>
+            <div class="sub">SEC 신고서 제출 완료</div>
+          </div>
+          <div class="info-card">
+            <div class="emoji">💰</div>
+            <div class="label">예상 공모 규모</div>
+            <div class="value">750억 달러</div>
+            <div class="sub">약 113조원</div>
+          </div>
+        </div>
+        <div class="bank-box">
+          <div class="label">주관사</div>
+          <div class="names">BoA · 씨티 · 골드만삭스 · JP모건</div>
+        </div>
+      </div>
+    </div>
+    <span class="account-name">@요즘뭔일</span>
+    <span class="page-indicator">2/6</span>
+  </div>
+</body>
+</html>
